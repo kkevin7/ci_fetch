@@ -8,7 +8,7 @@ function listener() {
 
 function recargar() {
     let tbody = document.getElementById('tbody-content');
-    fetchRequest('cancion/recargar').then(
+    fetchRequest('../cancion/recargar').then(
         datos => {
             tbody.innerHTML = datos;
             let btnEdit = document.querySelectorAll('.btn-mostrar');
@@ -23,7 +23,7 @@ function recargar() {
 }
 
 async function mostrarAdd(){
-    return await fetchRequest('cancion/mostrarAdd').then(
+    return await fetchRequest('../cancion/mostrarAdd').then(
         respuesta => {
             document.getElementById('formulario').innerHTML = respuesta;
             document.getElementById('btn-add').addEventListener('click', post);
@@ -41,7 +41,7 @@ function post(e) {
         alert("LOS CAMPOS ESTAN VACIOS")
         return false;
     } else {
-        postRequest('cancion/create', formData).then(respuesta => {
+        postRequest('../cancion/create', formData).then(respuesta => {
             recargar();
             limpiar();
         }
@@ -54,7 +54,7 @@ function eliminar(e) {
     id = this.value;
 
     if(confirm('¿Deseas eliminar el registro?')){
-        fetchRequest('cancion/delete/' + id).then(
+        fetchRequest('../cancion/delete/' + id).then(
             respuesta => {
                 recargar();
             }
@@ -66,7 +66,7 @@ function eliminar(e) {
 
 async function mostrarEdit(){
     id = this.value;
-    return await fetchRequest('cancion/mostrarEdit/'+id).then(
+    return await fetchRequest('../cancion/mostrarEdit/'+id).then(
         respuesta => {
             document.getElementById('formulario').innerHTML = respuesta;
             document.getElementById('btn-edit').addEventListener('click', editar);
@@ -85,7 +85,7 @@ function editar(e) {
         alert("LOS CAMPOS ESTAN VACIOS")
         return false;
     } else {
-        postRequest('cancion/update', formData).then(respuesta => {
+        postRequest('../cancion/update', formData).then(respuesta => {
             recargar();
             limpiar();
         }
