@@ -1,0 +1,12 @@
+.form-cancion{
+    padding: 25px;
+    background: hsl(0, 0%, 79%);
+}
+
+.content-margin{
+    margin-top: 15px;
+}
+
+#tbody-content{
+    background: #72cafe
+}
