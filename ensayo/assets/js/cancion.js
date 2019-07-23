@@ -1,5 +1,5 @@
 window.addEventListener('load', listener);
-url="http://localhost/ensayo/cancion/";
+url="http://localhost/ci_fetch/ensayo/cancion/";
 
 function listener(){
     recargar_tbody();
